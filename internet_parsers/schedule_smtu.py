@@ -28,10 +28,10 @@ def get_data(group):
     url = f"https://www.smtu.ru/ru/viewschedule/{group}/"
     r = requests.get(url=url)
 
-    with open("internet_parser/index.html", "w", encoding="UTF-8")as file:
+    with open("internet_parsers/index.html", "w", encoding="UTF-8")as file:
         file.write(r.text)
 
-    with open("internet_parser/index.html", encoding="UTF-8")as file:
+    with open("internet_parsers/index.html", encoding="UTF-8")as file:
         src = file.read()
 
     soup = BeautifulSoup(src, "lxml")
