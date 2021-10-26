@@ -49,7 +49,7 @@ def parse_new_homework(request):
 
     description = ""
     for i in range(2, len(request)-1):
-        description += request[i] + ""
+        description += request[i] + " "
 
     answer = {
         "Type": "homework",

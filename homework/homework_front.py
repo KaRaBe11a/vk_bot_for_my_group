@@ -8,12 +8,12 @@ def AddHomework(request):
             cursor.execute("INSERT INTO `homeworks` (subject, description, deadline) VALUES (%s, %s, %s)",
                            (request['Subject'], request['Description'], request['DeadLine']))
 
-        id_homework = cursor.lastrowid
-        cursor.execute("SELECT id FROM `all_users`")
-        users_id = cursor.fetchall()
+            id_homework = cursor.lastrowid
+            cursor.execute("SELECT id FROM `all_users`")
+            users_id = cursor.fetchall()
 
-        for id in users_id:
-            cursor.execute("INSERT INTO `users` (id, id_homework, status) VALUES (%s, %s, %s)",
+            for id in users_id:
+                cursor.execute("INSERT INTO `users` (id, id_homework, status) VALUES (%s, %s, %s)",
                            (id['id'], id_homework, "Нужно сделать"))
         connection.commit()
         return "complete"
